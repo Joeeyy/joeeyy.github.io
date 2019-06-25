@@ -40,7 +40,7 @@
 
   
   
-  <link href="/blog/public/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/blog/publi/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,21 +48,21 @@
 
 
 
-<link href="/blog/public/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/blog/publi/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/blog/public/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/public/images/apple-touch-icon_.png?v=5.1.3">
+<link href="/blog/publi/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/public/images/favicon-32x32_.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/publi/images/apple-touch-icon_.png?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/public/images/favicon-16x16_.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/publi/images/favicon-32x32_.png?v=5.1.3">
 
 
-  <link rel="mask-icon" href="/blog/public/images/logo_.svg?v=5.1.3" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/publi/images/favicon-16x16_.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/blog/publi/images/logo_.svg?v=5.1.3" color="#222">
 
 
 
@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/blog/public/atom.xml" title="Ainassine's Blog" type="application/atom+xml" />
+  <link rel="alternate" href="/blog/publi/atom.xml" title="Ainassine's Blog" type="application/atom+xml" />
 
 
 
@@ -101,7 +101,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/blog/public/',
+    root: '/blog/publi/',
     scheme: 'Muse',
     version: '5.1.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -178,7 +178,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/blog/public/"  class="brand" rel="start">
+      <a href="/blog/publi/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Ainassine's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -206,7 +206,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/blog/public/" rel="section">
+          <a href="/blog/publi/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -216,7 +216,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/blog/public/about/" rel="section">
+          <a href="/blog/publi/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -226,7 +226,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/public/tags/" rel="section">
+          <a href="/blog/publi/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -236,7 +236,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/blog/public/categories/" rel="section">
+          <a href="/blog/publi/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -246,7 +246,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/public/archives/" rel="section">
+          <a href="/blog/publi/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -321,12 +321,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2018/01/23/Begin">
+    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/publi/2018/01/23/Begin">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/public/images/1.png">
+      <meta itemprop="image" content="/blog/publi/images/1.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -385,7 +385,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/public/categories/Markdown/" itemprop="url" rel="index">
+                  <a href="/blog/publi/categories/Markdown/" itemprop="url" rel="index">
                     <span itemprop="name">Markdown</span>
                   </a>
                 </span>
@@ -400,7 +400,7 @@
 
           
           
-             <span id="/blog/public/2018/01/23/Begin" class="leancloud_visitors" data-flag-title="Begin">
+             <span id="/blog/publi/2018/01/23/Begin" class="leancloud_visitors" data-flag-title="Begin">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -477,7 +477,7 @@
 <p>Deleted: <del>Hello world!</del></p>
 <h3 id="About-links"><a href="#About-links" class="headerlink" title="About links"></a>About links</h3><p>Link for this blog: <a href="http://ainassine.top/blog/public" title="Ainassine&#39;s Blog" target="_blank" rel="noopener">Ainassine’s Blog</a></p>
 <p>For reference: Great search engines are as follows: <a href="https://www.baidu.com" title="baidu" target="_blank" rel="noopener">Baidu</a>, <a href="https://bing.cn" title="bing" target="_blank" rel="noopener">Bing</a> and <a href="https://www.google.com" title="google" target="_blank" rel="noopener">Google</a>, <a href="https://www.google.com" title="google" target="_blank" rel="noopener">Google</a> is good.</p>
-<p>Use ‘&lt;’ and ‘&gt;’ to make links be seen as links: <a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#106;&#111;&#101;&#101;&#x65;&#x65;&#101;&#x40;&#x65;&#120;&#x6d;&#x61;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;">&#106;&#111;&#101;&#101;&#x65;&#x65;&#101;&#x40;&#x65;&#120;&#x6d;&#x61;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;</a></p>
+<p>Use ‘&lt;’ and ‘&gt;’ to make links be seen as links: <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#58;&#106;&#111;&#x65;&#x65;&#x65;&#101;&#x65;&#64;&#101;&#120;&#x6d;&#x61;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#109;">&#106;&#111;&#x65;&#x65;&#x65;&#101;&#x65;&#64;&#101;&#120;&#x6d;&#x61;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#109;</a></p>
 <p>This is a anchor: Jump to <a href="#About-code">About Code</a></p>
 <h3 id="About-list"><a href="#About-list" class="headerlink" title="About list"></a>About list</h3><p>Disordered list (use *, - or + to denote): </p>
 <ul>
@@ -573,9 +573,9 @@
       
         <div class="post-tags">
           
-            <a href="/blog/public/tags/Markdown/" rel="tag"><i class="fa fa-tag"></i> Markdown</a>
+            <a href="/blog/publi/tags/Markdown/" rel="tag"><i class="fa fa-tag"></i> Markdown</a>
           
-            <a href="/blog/public/tags/My-blog/" rel="tag"><i class="fa fa-tag"></i> My blog</a>
+            <a href="/blog/publi/tags/My-blog/" rel="tag"><i class="fa fa-tag"></i> My blog</a>
           
         </div>
       
@@ -588,7 +588,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/public/2017/11/27/hello-world" rel="next" title="Hello World">
+              <a href="/blog/publi/2017/11/27/hello-world" rel="next" title="Hello World">
                 <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
@@ -598,7 +598,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/public/2018/01/23/mac-pip-install" rel="prev" title="mac-pip-install">
+              <a href="/blog/publi/2018/01/23/mac-pip-install" rel="prev" title="mac-pip-install">
                 mac-pip-install <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -663,7 +663,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/blog/public/images/1.png"
+                src="/blog/publi/images/1.png"
                 alt="Ainassine" />
             
               <p class="site-author-name" itemprop="name">Ainassine</p>
@@ -675,7 +675,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/blog/public/archives/">
+                <a href="/blog/publi/archives/">
               
                   <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
@@ -687,7 +687,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/blog/public/categories/index.html">
+                <a href="/blog/publi/categories/index.html">
                   <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -698,7 +698,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/blog/public/tags/index.html">
+                <a href="/blog/publi/tags/index.html">
                   <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -709,7 +709,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="/blog/public/atom.xml" rel="alternate">
+              <a href="/blog/publi/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -885,46 +885,46 @@
 
 
   
-  <script type="text/javascript" src="/blog/public/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/blog/publi/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/blog/public/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/blog/publi/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/blog/public/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/blog/publi/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/blog/public/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/blog/publi/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/public/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/blog/publi/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/public/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/blog/public/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/blog/public/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/blog/public/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/blog/public/js/src/post-details.js?v=5.1.3"></script>
-
+  <script type="text/javascript" src="/blog/publi/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/blog/public/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/blog/publi/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/blog/publi/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/publi/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/blog/publi/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/publi/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -985,7 +985,7 @@
     } else if (/json$/i.test(search_path)) {
       isXml = false;
     }
-    var path = "/blog/public/" + search_path;
+    var path = "/blog/publi/" + search_path;
     // monitor main search box;
 
     var onPopupClose = function (e) {
