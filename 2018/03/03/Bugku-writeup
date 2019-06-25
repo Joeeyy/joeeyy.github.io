@@ -40,7 +40,7 @@
 
   
   
-  <link href="/blog/public/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,21 +48,21 @@
 
 
 
-<link href="/blog/public/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/blog/public/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/public/images/apple-touch-icon_.png?v=5.1.3">
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/public/images/favicon-32x32_.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon_.png?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/public/images/favicon-16x16_.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32_.png?v=5.1.3">
 
 
-  <link rel="mask-icon" href="/blog/public/images/logo_.svg?v=5.1.3" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16_.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo_.svg?v=5.1.3" color="#222">
 
 
 
@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/blog/public/atom.xml" title="Ainassine's Blog" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Ainassine's Blog" type="application/atom+xml" />
 
 
 
@@ -99,7 +99,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/blog/public/',
+    root: '/',
     scheme: 'Muse',
     version: '5.1.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -176,7 +176,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/blog/public/"  class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Ainassine's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -204,7 +204,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/blog/public/" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -214,7 +214,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/blog/public/about/" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -224,7 +224,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/public/tags/" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -234,7 +234,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/blog/public/categories/" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -244,7 +244,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/public/archives/" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -319,12 +319,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2018/03/03/Bugku-writeup">
+    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/2018/03/03/Bugku-writeup">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/public/images/1.png">
+      <meta itemprop="image" content="/images/1.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -383,7 +383,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/public/categories/CTF/" itemprop="url" rel="index">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
                     <span itemprop="name">CTF</span>
                   </a>
                 </span>
@@ -394,7 +394,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/public/categories/CTF/Writeup/" itemprop="url" rel="index">
+                  <a href="/categories/CTF/Writeup/" itemprop="url" rel="index">
                     <span itemprop="name">Writeup</span>
                   </a>
                 </span>
@@ -411,7 +411,7 @@
 
           
           
-             <span id="/blog/public/2018/03/03/Bugku-writeup" class="leancloud_visitors" data-flag-title="Bugku-writeup">
+             <span id="/2018/03/03/Bugku-writeup" class="leancloud_visitors" data-flag-title="Bugku-writeup">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -497,11 +497,11 @@
       
         <div class="post-tags">
           
-            <a href="/blog/public/tags/CTF/" rel="tag"><i class="fa fa-tag"></i> CTF</a>
+            <a href="/tags/CTF/" rel="tag"><i class="fa fa-tag"></i> CTF</a>
           
-            <a href="/blog/public/tags/Writeup/" rel="tag"><i class="fa fa-tag"></i> Writeup</a>
+            <a href="/tags/Writeup/" rel="tag"><i class="fa fa-tag"></i> Writeup</a>
           
-            <a href="/blog/public/tags/Bugku/" rel="tag"><i class="fa fa-tag"></i> Bugku</a>
+            <a href="/tags/Bugku/" rel="tag"><i class="fa fa-tag"></i> Bugku</a>
           
         </div>
       
@@ -514,7 +514,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/public/2018/03/02/隐写入门-工具篇" rel="next" title="隐写入门-工具篇">
+              <a href="/2018/03/02/隐写入门-工具篇" rel="next" title="隐写入门-工具篇">
                 <i class="fa fa-chevron-left"></i> 隐写入门-工具篇
               </a>
             
@@ -524,7 +524,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/public/2018/04/16/codecraft2018" rel="prev" title="codecraft2018">
+              <a href="/2018/04/16/codecraft2018" rel="prev" title="codecraft2018">
                 codecraft2018 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -595,7 +595,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/blog/public/images/1.png"
+                src="/images/1.png"
                 alt="Ainassine" />
             
               <p class="site-author-name" itemprop="name">Ainassine</p>
@@ -607,7 +607,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/blog/public/archives/">
+                <a href="/archives/">
               
                   <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
@@ -619,7 +619,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/blog/public/categories/index.html">
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -630,7 +630,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/blog/public/tags/index.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -641,7 +641,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="/blog/public/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -817,46 +817,46 @@
 
 
   
-  <script type="text/javascript" src="/blog/public/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/blog/public/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/blog/public/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/blog/public/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/public/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blog/public/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/blog/public/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/blog/public/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/blog/public/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/blog/public/js/src/post-details.js?v=5.1.3"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/blog/public/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -917,7 +917,7 @@
     } else if (/json$/i.test(search_path)) {
       isXml = false;
     }
-    var path = "/blog/public/" + search_path;
+    var path = "/" + search_path;
     // monitor main search box;
 
     var onPopupClose = function (e) {
