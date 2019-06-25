@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+ <metadata id="metadata3390">image/svg+xml</metadata>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path fill="#222222" d="m253.399994,26.800001l-199.999992,115.500002l-0.400002,230.199997l199.600006,114.700012l200,-115.5l0.399994,-230.200012l-199.600006,-114.699999z" id="path3384"/>
+  <path transform="rotate(29.7647 253 257)" fill="#222222" d="m253.399994,26.799999l-199.999992,115.500004l-0.400002,230.199997l199.600006,114.700012l200,-115.5l0.399994,-230.200012l-199.600006,-114.700001z" id="svg_1"/>
+  <text style="cursor: move;" stroke="#ffffff" font-style="normal" font-weight="normal" transform="matrix(16.6288 0 0 15.4727 -3088.7 -3020.07)" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_2" y="219.5" x="192.5" stroke-width="0" fill="#ffffff">A</text>
+ </g>
+</svg>

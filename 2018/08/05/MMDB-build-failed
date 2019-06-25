@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/public/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/public/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/public/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/public/images/apple-touch-icon_.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/public/images/favicon-32x32_.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/public/images/favicon-16x16_.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/blog/public/images/logo_.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS,NEKit," />
+
+
+
+
+
+  <link rel="alternate" href="/blog/public/atom.xml" title="Ainassine's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="MMDB build failed.实践苹果NetworkExtension过程中遇到的问题，需要向项目中导入NEKit，遵循NEKit给出的指导，用的是Carthage，但是执行carthage update --no-use-binaries --platform mac,ios过程中屡次失败，经查出错前最后的部分">
+<meta name="keywords" content="iOS,NEKit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MMDB build failed.">
+<meta property="og:url" content="http://blog.ainassine.cn/blog/public/2018/08/05/MMDB-build-failed">
+<meta property="og:site_name" content="Ainassine&#39;s Blog">
+<meta property="og:description" content="MMDB build failed.实践苹果NetworkExtension过程中遇到的问题，需要向项目中导入NEKit，遵循NEKit给出的指导，用的是Carthage，但是执行carthage update --no-use-binaries --platform mac,ios过程中屡次失败，经查出错前最后的部分log如下：1234567891011121314151617181920212">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-05T16:03:40.480Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MMDB build failed.">
+<meta name="twitter:description" content="MMDB build failed.实践苹果NetworkExtension过程中遇到的问题，需要向项目中导入NEKit，遵循NEKit给出的指导，用的是Carthage，但是执行carthage update --no-use-binaries --platform mac,ios过程中屡次失败，经查出错前最后的部分log如下：1234567891011121314151617181920212">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/public/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.ainassine.cn/blog/public/2018/08/05/MMDB-build-failed"/>
+
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <title>MMDB build failed. | Ainassine's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c38b095f890551bad6df876c160ff82c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/public/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ainassine's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录一切零散和琐碎。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/public/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/public/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/public/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/public/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/public/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2018/08/05/MMDB-build-failed">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ainassine">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/public/images/1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ainassine's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MMDB build failed.</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-05T23:52:59+08:00">
+                2018-08-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-06T00:03:40+08:00">
+                2018-08-06
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/blog/public/2018/08/05/MMDB-build-failed" class="leancloud_visitors" data-flag-title="MMDB build failed.">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5,542 words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  34 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="MMDB-build-failed"><a href="#MMDB-build-failed" class="headerlink" title="MMDB build failed."></a>MMDB build failed.</h1><p>实践苹果NetworkExtension过程中遇到的问题，需要向项目中导入<a href="https://github.com/zhuhaow/NEKit" target="_blank" rel="noopener">NEKit</a>，遵循NEKit给出的指导，用的是<code>Carthage</code>，但是执行<code>carthage update --no-use-binaries --platform mac,ios</code>过程中屡次失败，经查出错前最后的部分log如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">...</span><br><span class="line">    /bin/sh -c /Users/ainassine/Library/Caches/org.carthage.CarthageKit/DerivedData/9.4.1_9F2000/MMDB-Swift/0.2.8/Build/Intermediates.noindex/ArchiveIntermediates/MMDB-iOS/IntermediateBuildFilesPath/MMDB.build/Release-iphoneos/MMDB-iOS.build/Script-366F5FDD1F05152C00DE3883.sh</span><br><span class="line">Updating GeoIP database.</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0</span><br><span class="line">  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0</span><br><span class="line">  0 1704k    0  8067    0     0   4225      0  0:06:53  0:00:01  0:06:52  4225</span><br><span class="line">  1 1704k    1 23907    0     0   7462      0  0:03:53  0:00:03  0:03:50  7463</span><br><span class="line">  1 1704k    1 23907    0     0   5685      0  0:05:07  0:00:04  0:05:03  5686</span><br><span class="line">  2 1704k    2 40291    0     0   8236      0  0:03:31  0:00:04  0:03:27  8236</span><br><span class="line">  4 1704k    4 72867    0     0  12864      0  0:02:15  0:00:05  0:02:10 14045</span><br><span class="line">  4 1704k    4 72867    0     0  10931      0  0:02:39  0:00:06  0:02:33 13619</span><br><span class="line">  6 1704k    6  106k    0     0  14439      0  0:02:00  0:00:07  0:01:53 19594</span><br><span class="line">  8 1704k    8  140k    0     0  15812      0  0:01:50  0:00:09  0:01:41 24562</span><br><span class="line">  8 1704k    8  149k    0     0  14996      0  0:01:56  0:00:10  0:01:46 21185</span><br><span class="line">  9 1704k    9  155k    0     0  15004      0  0:01:56  0:00:10  0:01:46 17451</span><br><span class="line"> 10 1704k   10  176k    0     0  15325      0  0:01:53  0:00:11  0:01:42 21032</span><br><span class="line"> 10 1704k   10  186k    0     0  14929      0  0:01:56  0:00:12  0:01:44 15634</span><br><span class="line"> 12 1704k   12  207k    0     0  15192      0  0:01:54  0:00:13  0:01:41 14048</span><br><span class="line"> 12 1704k   12  210k    0     0  14446      0  0:02:00  0:00:14  0:01:46 13242</span><br><span class="line"> 13 1704k   13  231k    0     0  15133      0  0:01:55  0:00:15  0:01:40 15407</span><br><span class="line"> 14 1704k   14  248k    0     0  14982      0  0:01:56  0:00:16  0:01:40 14199</span><br><span class="line"> 15 1704k   15  269k    0     0  15233      0  0:01:54  0:00:18  0:01:36 15966</span><br><span class="line"> 16 1704k   16  275k    0     0  14758      0  0:01:58  0:00:19  0:01:39 13566</span><br><span class="line"> 16 1704k   16  283k    0     0  14897      0  0:01:57  0:00:19  0:01:38 16363</span><br><span class="line"> 17 1704k   17  290k    0     0  13870      0  0:02:05  0:00:21  0:01:44 10452</span><br><span class="line"> 17 1704k   17  306k    0     0  14378      0  0:02:01  0:00:21  0:01:40 12270</span><br><span class="line"> 19 1704k   19  324k    0     0  14334      0  0:02:01  0:00:23  0:01:38 11114</span><br><span class="line"> 19 1704k   19  336k    0     0  14364      0  0:02:01  0:00:24  0:01:37 12841</span><br><span class="line"> 20 1704k   20  352k    0     0  14509      0  0:02:00  0:00:24  0:01:36 13116</span><br><span class="line"> 20 1704k   20  355k    0     0  14037      0  0:02:04  0:00:25  0:01:39 14838</span><br><span class="line"> 21 1704k   21  367k    0     0  14130      0  0:02:03  0:00:26  0:01:37 13005</span><br><span class="line"> 22 1704k   22  386k    0     0  14216      0  0:02:02  0:00:27  0:01:35 13631</span><br><span class="line"> 22 1704k   22  388k    0     0  13804      0  0:02:06  0:00:28  0:01:38 11019</span><br><span class="line"> 23 1704k   23  404k    0     0  13891      0  0:02:05  0:00:29  0:01:36 10751</span><br><span class="line"> 24 1704k   24  411k    0     0  13801      0  0:02:06  0:00:30  0:01:36 12475</span><br><span class="line"> 24 1704k   24  411k    0     0  13363      0  0:02:10  0:00:31  0:01:39  9164</span><br><span class="line"> 25 1704k   25  431k    0     0  13462      0  0:02:09  0:00:32  0:01:37  9208</span><br><span class="line"> 26 1704k   26  457k    0     0  13902      0  0:02:05  0:00:33  0:01:32 14482</span><br><span class="line"> 28 1704k   28  477k    0     0  14177      0  0:02:03  0:00:34  0:01:29 15993</span><br><span class="line"> 28 1704k   28  477k    0     0  13776      0  0:02:06  0:00:35  0:01:31 13623</span><br><span class="line"> 29 1704k   29  511k    0     0  14225      0  0:02:02  0:00:36  0:01:26 19378</span><br><span class="line"> 30 1704k   30  522k    0     0  14266      0  0:02:02  0:00:37  0:01:25 19864</span><br><span class="line"> 30 1704k   30  523k    0     0  13905      0  0:02:05  0:00:38  0:01:27 13923</span><br><span class="line"> 31 1704k   31  538k    0     0  13798      0  0:02:06  0:00:39  0:01:27 11392</span><br><span class="line"> 31 1704k   31  538k    0     0  13459      0  0:02:09  0:00:40  0:01:29 11390</span><br><span class="line"> 32 1704k   32  553k    0     0  13637      0  0:02:07  0:00:41  0:01:26  9083</span><br><span class="line"> 33 1704k   33  576k    0     0  13836      0  0:02:06  0:00:42  0:01:24 10689</span><br><span class="line"> 34 1704k   34  585k    0     0  13786      0  0:02:06  0:00:43  0:01:23 12854</span><br><span class="line"> 34 1704k   34  594k    0     0  13649      0  0:02:07  0:00:44  0:01:23 12379</span><br><span class="line"> 36 1704k   36  629k    0     0  13965      0  0:02:04  0:00:46  0:01:18 17901</span><br><span class="line"> 37 1704k   37  644k    0     0  14101      0  0:02:03  0:00:46  0:01:17 17771</span><br><span class="line"> 38 1704k   38  653k    0     0  14011      0  0:02:04  0:00:47  0:01:17 15468</span><br><span class="line"> 38 1704k   38  664k    0     0  13922      0  0:02:05  0:00:48  0:01:17 15027</span><br><span class="line"> 40 1704k   40  685k    0     0  14096      0  0:02:03  0:00:49  0:01:14 17903</span><br><span class="line"> 40 1704k   40  687k    0     0  13903      0  0:02:05  0:00:50  0:01:15 13255</span><br><span class="line"> 41 1704k   41  699k    0     0  13687      0  0:02:07  0:00:52  0:01:15 10172</span><br><span class="line"> 41 1704k   41  699k    0     0  13430      0  0:02:09  0:00:53  0:01:16  8478</span><br><span class="line"> 41 1704k   41  715k    0     0  13538      0  0:02:08  0:00:54  0:01:14  9968</span><br><span class="line"> 43 1704k   43  746k    0     0  13869      0  0:02:05  0:00:55  0:01:10 11727</span><br><span class="line"> 44 1704k   44  757k    0     0  13956      0  0:02:05  0:00:55  0:01:10 14498</span><br><span class="line"> 44 1704k   44  760k    0     0  13757      0  0:02:06  0:00:56  0:01:10 14627</span><br><span class="line"> 45 1704k   45  767k    0     0  13617      0  0:02:08  0:00:57  0:01:11 15915</span><br><span class="line"> 45 1704k   45  778k    0     0  13601      0  0:02:08  0:00:58  0:01:10 14358</span><br><span class="line"> 45 1704k   45  778k    0     0  13372      0  0:02:10  0:00:59  0:01:11  7324</span><br><span class="line"> 46 1704k   46  796k    0     0  13430      0  0:02:09  0:01:00  0:01:09  7783</span><br><span class="line"> 47 1704k   47  805k    0     0  13207      0  0:02:12  0:01:02  0:01:10  7883</span><br><span class="line"> 47 1704k   47  806k    0     0  13210      0  0:02:12  0:01:02  0:01:10  8346</span><br><span class="line"> 47 1704k   47  812k    0     0  13079      0  0:02:13  0:01:03  0:01:10  6938</span><br><span class="line"> 48 1704k   48  822k    0     0  13012      0  0:02:14  0:01:04  0:01:10  8789</span><br><span class="line"> 49 1704k   49  838k    0     0  13109      0  0:02:13  0:01:05  0:01:08  9031</span><br><span class="line"> 49 1704k   49  841k    0     0  12815      0  0:02:16  0:01:07  0:01:09  7745</span><br><span class="line"> 50 1704k   50  857k    0     0  12905      0  0:02:15  0:01:08  0:01:07  9460</span><br><span class="line"> 50 1704k   50  861k    0     0  12771      0  0:02:16  0:01:09  0:01:07  9202</span><br><span class="line"> 50 1704k   50  867k    0     0  12747      0  0:02:16  0:01:09  0:01:07  9286</span><br><span class="line"> 52 1704k   52  886k    0     0  12772      0  0:02:16  0:01:11  0:01:05  8799</span><br><span class="line"> 52 1704k   52  888k    0     0  12588      0  0:02:18  0:01:12  0:01:06  9524</span><br><span class="line"> 52 1704k   52  892k    0     0  12589      0  0:02:18  0:01:12  0:01:06  7844</span><br><span class="line"> 52 1704k   52  892k    0     0  12418      0  0:02:20  0:01:13  0:01:07  7015</span><br><span class="line"> 52 1704k   52  900k    0     0  12383      0  0:02:20  0:01:14  0:01:06  7143</span><br><span class="line"> 53 1704k   53  914k    0     0  12382      0  0:02:20  0:01:15  0:01:05  6308</span><br><span class="line"> 54 1704k   54  926k    0     0  12313      0  0:02:21  0:01:17  0:01:04  8149</span><br><span class="line"> 54 1704k   54  937k    0     0  12382      0  0:02:20  0:01:17  0:01:03  9326</span><br><span class="line"> 55 1704k   55  938k    0     0  12227      0  0:02:22  0:01:18  0:01:04  9430</span><br><span class="line"> 55 1704k   55  948k    0     0  12210      0  0:02:22  0:01:19  0:01:03  9668</span><br><span class="line"> 56 1704k   56  965k    0     0  12219      0  0:02:22  0:01:20  0:01:02  9878</span><br><span class="line"> 57 1704k   57  973k    0     0  12137      0  0:02:23  0:01:22  0:01:01  9512</span><br><span class="line"> 57 1704k   57  983k    0     0  12199      0  0:02:23  0:01:22  0:01:01  9398</span><br><span class="line"> 58 1704k   58  997k    0     0  12227      0  0:02:22  0:01:23  0:00:59 12242</span><br><span class="line"> 59 1704k   59 1006k    0     0  12192      0  0:02:23  0:01:24  0:00:59 11900</span><br><span class="line"> 59 1704k   59 1013k    0     0  12114      0  0:02:24  0:01:25  0:00:59 10326</span><br><span class="line"> 60 1704k   60 1034k    0     0  12208      0  0:02:22  0:01:26  0:00:56 13463</span><br><span class="line"> 61 1704k   61 1042k    0     0  12107      0  0:02:24  0:01:28  0:00:56 10757</span><br><span class="line"> 62 1704k   62 1056k    0     0  12155      0  0:02:23  0:01:29  0:00:54 11048</span><br><span class="line"> 62 1704k   62 1056k    0     0  12019      0  0:02:25  0:01:30  0:00:55  9379</span><br><span class="line"> 62 1704k   62 1056k    0     0  11887      0  0:02:26  0:01:31  0:00:55  8274</span><br><span class="line"> 63 1704k   63 1078k    0     0  12017      0  0:02:25  0:01:31  0:00:54  8768</span><br><span class="line"> 63 1704k   63 1078k    0     0  11887      0  0:02:26  0:01:32  0:00:54  7725</span><br><span class="line"> 63 1704k   63 1078k    0     0  11760      0  0:02:28  0:01:33  0:00:55  4472</span><br><span class="line"> 65 1704k   65 1108k    0     0  11975      0  0:02:25  0:01:34  0:00:51 11139</span><br><span class="line"> 65 1704k   65 1121k    0     0  12021      0  0:02:25  0:01:35  0:00:50 14729</span><br><span class="line"> 65 1704k   65 1121k    0     0  11896      0  0:02:26  0:01:36  0:00:50  9526</span><br><span class="line"> 65 1704k   65 1121k    0     0  11774      0  0:02:28  0:01:37  0:00:51  9532</span><br><span class="line"> 67 1704k   67 1142k    0     0  11867      0  0:02:27  0:01:38  0:00:49 14007</span><br><span class="line"> 67 1704k   67 1144k    0     0  11745      0  0:02:28  0:01:39  0:00:49  7312</span><br><span class="line"> 67 1704k   67 1151k    0     0  11686      0  0:02:29  0:01:40  0:00:49  5684</span><br><span class="line"> 67 1704k   67 1151k    0     0  11571      0  0:02:30  0:01:41  0:00:49  5681</span><br><span class="line"> 67 1704k   67 1158k    0     0  11466      0  0:02:32  0:01:43  0:00:49  6367</span><br><span class="line"> 68 1704k   68 1166k    0     0  11505      0  0:02:31  0:01:43  0:00:48  4675</span><br><span class="line"> 68 1704k   68 1173k    0     0  11475      0  0:02:32  0:01:44  0:00:48  6077</span><br><span class="line"> 69 1704k   69 1180k    0     0  11418      0  0:02:32  0:01:45  0:00:47  6026</span><br><span class="line"> 69 1704k   69 1180k    0     0  11311      0  0:02:34  0:01:46  0:00:48  6025</span><br><span class="line"> 69 1704k   69 1190k    0     0  11326      0  0:02:34  0:01:47  0:00:47  7866</span><br><span class="line"> 69 1704k   69 1190k    0     0  11221      0  0:02:35  0:01:48  0:00:47  5096</span><br><span class="line"> 70 1704k   70 1208k    0     0  11242      0  0:02:35  0:01:50  0:00:45  6693</span><br><span class="line"> 70 1704k   70 1210k    0     0  11212      0  0:02:35  0:01:50  0:00:45  6515</span><br><span class="line"> 71 1704k   71 1221k    0     0  11139      0  0:02:36  0:01:52  0:00:44  7746</span><br><span class="line"> 71 1704k   71 1225k    0     0  11156      0  0:02:36  0:01:52  0:00:44  7401</span><br><span class="line"> 71 1704k   71 1227k    0     0  11039      0  0:02:38  0:01:53  0:00:45  7216</span><br><span class="line"> 72 1704k   72 1232k    0     0  10978      0  0:02:39  0:01:54  0:00:45  5018</span><br><span class="line"> 73 1704k   73 1256k    0     0  11064      0  0:02:37  0:01:56  0:00:41  8225</span><br><span class="line"> 73 1704k   73 1259k    0     0  11060      0  0:02:37  0:01:56  0:00:41  8995</span><br><span class="line"> 74 1704k   74 1267k    0     0  11047      0  0:02:38  0:01:57  0:00:41  8598</span><br><span class="line"> 74 1704k   74 1269k    0     0  10952      0  0:02:39  0:01:58  0:00:41  8912</span><br><span class="line"> 75 1704k   75 1281k    0     0  10982      0  0:02:38  0:01:59  0:00:39 11096</span><br><span class="line"> 75 1704k   75 1284k    0     0  10885      0  0:02:40  0:02:00  0:00:40  6321</span><br><span class="line"> 75 1704k   75 1287k    0     0  10844      0  0:02:40  0:02:01  0:00:39  5784</span><br><span class="line"> 75 1704k   75 1288k    0     0  10755      0  0:02:42  0:02:02  0:00:40  4153</span><br><span class="line"> 75 1704k   75 1288k    0     0  10667      0  0:02:43  0:02:03  0:00:40  3986</span><br><span class="line"> 76 1704k   76 1311k    0     0  10751      0  0:02:42  0:02:04  0:00:38  5615</span><br><span class="line"> 77 1704k   77 1318k    0     0  10678      0  0:02:43  0:02:06  0:00:37  6191</span><br><span class="line"> 77 1704k   77 1318k    0     0  10594      0  0:02:44  0:02:07  0:00:37  5403</span><br><span class="line"> 77 1704k   77 1319k    0     0  10557      0  0:02:45  0:02:08  0:00:37  5986</span><br><span class="line"> 78 1704k   78 1333k    0     0  10632      0  0:02:44  0:02:08  0:00:36  9719</span><br><span class="line"> 78 1704k   78 1336k    0     0  10546      0  0:02:45  0:02:09  0:00:36  5308</span><br><span class="line"> 78 1704k   78 1342k    0     0  10461      0  0:02:46  0:02:11  0:00:35  4937</span><br><span class="line"> 79 1704k   79 1349k    0     0  10503      0  0:02:46  0:02:11  0:00:35  7687</span><br><span class="line"> 79 1704k   79 1349k    0     0  10423      0  0:02:47  0:02:12  0:00:35  6643</span><br><span class="line"> 79 1704k   79 1356k    0     0  10361      0  0:02:48  0:02:14  0:00:34  4121</span><br><span class="line"> 79 1704k   79 1356k    0     0  10284      0  0:02:49  0:02:15  0:00:34  3824</span><br><span class="line"> 79 1704k   79 1362k    0     0  10253      0  0:02:50  0:02:16  0:00:34  4349</span><br><span class="line"> 80 1704k   80 1370k    0     0  10230      0  0:02:50  0:02:17  0:00:33  3842</span><br><span class="line"> 81 1704k   81 1381k    0     0  10282      0  0:02:49  0:02:17  0:00:32  6577</span><br><span class="line"> 81 1704k   81 1388k    0     0  10203      0  0:02:51  0:02:19  0:00:32  6230</span><br><span class="line"> 81 1704k   81 1388k    0     0  10130      0  0:02:52  0:02:20  0:00:32  6225</span><br><span class="line"> 81 1704k   81 1397k    0     0  10133      0  0:02:52  0:02:21  0:00:31  6982</span><br><span class="line"> 82 1704k   82 1400k    0     0  10082      0  0:02:53  0:02:22  0:00:31  6039</span><br><span class="line"> 82 1704k   82 1404k    0     0  10093      0  0:02:52  0:02:22  0:00:30  4736</span><br><span class="line"> 83 1704k   83 1419k    0     0  10124      0  0:02:52  0:02:23  0:00:29  7503</span><br><span class="line"> 83 1704k   83 1419k    0     0  10053      0  0:02:53  0:02:24  0:00:29  7507</span><br><span class="line"> 83 1704k   83 1419k    0     0   9984      0  0:02:54  0:02:25  0:00:29  5212</span><br><span class="line"> 84 1704k   84 1436k    0     0   9985      0  0:02:54  0:02:27  0:00:27  7295</span><br><span class="line"> 84 1704k   84 1445k    0     0  10023      0  0:02:54  0:02:27  0:00:27  8088</span><br><span class="line"> 84 1704k   84 1445k    0     0   9955      0  0:02:55  0:02:28  0:00:27  5146</span><br><span class="line"> 85 1704k   85 1456k    0     0   9952      0  0:02:55  0:02:29  0:00:26  7150</span><br><span class="line"> 85 1704k   85 1463k    0     0   9902      0  0:02:56  0:02:31  0:00:25  7821</span><br><span class="line"> 86 1704k   86 1466k    0     0   9907      0  0:02:56  0:02:31  0:00:25  7186</span><br><span class="line"> 86 1704k   86 1470k    0     0   9854      0  0:02:57  0:02:32  0:00:25  5032</span><br><span class="line"> 86 1704k   86 1478k    0     0   9854      0  0:02:57  0:02:33  0:00:24  6866</span><br><span class="line"> 87 1704k   87 1484k    0     0   9835      0  0:02:57  0:02:34  0:00:23  6110</span><br><span class="line"> 87 1704k   87 1488k    0     0   9752      0  0:02:58  0:02:36  0:00:22  5187</span><br><span class="line"> 87 1704k   87 1488k    0     0   9689      0  0:03:00  0:02:37  0:00:23  3984</span><br><span class="line"> 87 1704k   87 1488k    0     0   9628      0  0:03:01  0:02:38  0:00:23  3380</span><br><span class="line"> 87 1704k   87 1488k    0     0   9567      0  0:03:02  0:02:39  0:00:23  1782</span><br><span class="line"> 87 1704k   87 1488k    0     0   9507      0  0:03:03  0:02:40  0:00:23   747</span><br><span class="line"> 87 1704k   87 1488k    0     0   9448      0  0:03:04  0:02:41  0:00:23     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   9390      0  0:03:05  0:02:42  0:00:23     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   9332      0  0:03:07  0:02:43  0:00:24     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   9275      0  0:03:08  0:02:44  0:00:24     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   9219      0  0:03:09  0:02:45  0:00:24     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   9163      0  0:03:10  0:02:46  0:00:24     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   9108      0  0:03:11  0:02:47  0:00:24     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   9054      0  0:03:12  0:02:48  0:00:24     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   9000      0  0:03:13  0:02:49  0:00:24     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8947      0  0:03:15  0:02:50  0:00:25     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8895      0  0:03:16  0:02:51  0:00:25     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8843      0  0:03:17  0:02:52  0:00:25     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8792      0  0:03:18  0:02:53  0:00:25     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8741      0  0:03:19  0:02:54  0:00:25     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8691      0  0:03:20  0:02:55  0:00:25     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8642      0  0:03:21  0:02:56  0:00:25     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8593      0  0:03:23  0:02:57  0:00:26     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8544      0  0:03:24  0:02:58  0:00:26     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8496      0  0:03:25  0:02:59  0:00:26     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8449      0  0:03:26  0:03:00  0:00:26     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8402      0  0:03:27  0:03:01  0:00:26     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8356      0  0:03:28  0:03:02  0:00:26     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8310      0  0:03:30  0:03:03  0:00:27     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8265      0  0:03:31  0:03:04  0:00:27     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8220      0  0:03:32  0:03:05  0:00:27     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8176      0  0:03:33  0:03:06  0:00:27     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8132      0  0:03:34  0:03:07  0:00:27     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8089      0  0:03:35  0:03:08  0:00:27     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8046      0  0:03:36  0:03:09  0:00:27     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   8004      0  0:03:38  0:03:10  0:00:28     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7962      0  0:03:39  0:03:11  0:00:28     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7920      0  0:03:40  0:03:12  0:00:28     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7879      0  0:03:41  0:03:13  0:00:28     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7839      0  0:03:42  0:03:14  0:00:28     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7799      0  0:03:43  0:03:15  0:00:28     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7759      0  0:03:44  0:03:16  0:00:28     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7720      0  0:03:46  0:03:17  0:00:29     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7680      0  0:03:47  0:03:18  0:00:29     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7642      0  0:03:48  0:03:19  0:00:29     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7604      0  0:03:49  0:03:20  0:00:29     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7566      0  0:03:50  0:03:21  0:00:29     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7528      0  0:03:51  0:03:22  0:00:29     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7491      0  0:03:53  0:03:23  0:00:30     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7454      0  0:03:54  0:03:24  0:00:30     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7418      0  0:03:55  0:03:25  0:00:30     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7382      0  0:03:56  0:03:26  0:00:30     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7346      0  0:03:57  0:03:27  0:00:30     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7311      0  0:03:58  0:03:28  0:00:30     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7276      0  0:03:59  0:03:29  0:00:30     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7241      0  0:04:01  0:03:30  0:00:31     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7207      0  0:04:02  0:03:31  0:00:31     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7173      0  0:04:03  0:03:32  0:00:31     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7139      0  0:04:04  0:03:33  0:00:31     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7105      0  0:04:05  0:03:34  0:00:31     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7072      0  0:04:06  0:03:35  0:00:31     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7039      0  0:04:07  0:03:36  0:00:31     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   7007      0  0:04:09  0:03:37  0:00:32     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6975      0  0:04:10  0:03:38  0:00:32     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6943      0  0:04:11  0:03:39  0:00:32     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6911      0  0:04:12  0:03:40  0:00:32     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6880      0  0:04:13  0:03:41  0:00:32     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6849      0  0:04:14  0:03:42  0:00:32     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6818      0  0:04:16  0:03:43  0:00:33     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6788      0  0:04:17  0:03:44  0:00:33     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6758      0  0:04:18  0:03:45  0:00:33     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6728      0  0:04:19  0:03:46  0:00:33     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6698      0  0:04:20  0:03:47  0:00:33     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6669      0  0:04:21  0:03:48  0:00:33     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6639      0  0:04:22  0:03:49  0:00:33     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6611      0  0:04:24  0:03:50  0:00:34     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6582      0  0:04:25  0:03:51  0:00:34     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6554      0  0:04:26  0:03:52  0:00:34     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6525      0  0:04:27  0:03:53  0:00:34     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6497      0  0:04:28  0:03:54  0:00:34     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6470      0  0:04:29  0:03:55  0:00:34     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6442      0  0:04:30  0:03:56  0:00:34     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6415      0  0:04:32  0:03:57  0:00:35     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6388      0  0:04:33  0:03:58  0:00:35     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6361      0  0:04:34  0:03:59  0:00:35     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6335      0  0:04:35  0:04:00  0:00:35     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6309      0  0:04:36  0:04:01  0:00:35     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6283      0  0:04:37  0:04:02  0:00:35     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6257      0  0:04:38  0:04:03  0:00:35     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6231      0  0:04:40  0:04:04  0:00:36     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6206      0  0:04:41  0:04:05  0:00:36     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6180      0  0:04:42  0:04:06  0:00:36     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6155      0  0:04:43  0:04:07  0:00:36     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6131      0  0:04:44  0:04:08  0:00:36     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6106      0  0:04:45  0:04:09  0:00:36     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6082      0  0:04:46  0:04:10  0:00:36     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6057      0  0:04:48  0:04:11  0:00:37     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6033      0  0:04:49  0:04:12  0:00:37     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   6009      0  0:04:50  0:04:13  0:00:37     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5986      0  0:04:51  0:04:14  0:00:37     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5962      0  0:04:52  0:04:15  0:00:37     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5939      0  0:04:53  0:04:16  0:00:37     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5916      0  0:04:55  0:04:17  0:00:38     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5893      0  0:04:56  0:04:18  0:00:38     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5870      0  0:04:57  0:04:19  0:00:38     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5847      0  0:04:58  0:04:20  0:00:38     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5825      0  0:04:59  0:04:21  0:00:38     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5803      0  0:05:00  0:04:22  0:00:38     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5781      0  0:05:01  0:04:23  0:00:38     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5759      0  0:05:03  0:04:24  0:00:39     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5737      0  0:05:04  0:04:25  0:00:39     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5716      0  0:05:05  0:04:26  0:00:39     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5694      0  0:05:06  0:04:27  0:00:39     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5673      0  0:05:07  0:04:28  0:00:39     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5652      0  0:05:08  0:04:29  0:00:39     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5631      0  0:05:09  0:04:30  0:00:39     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5610      0  0:05:11  0:04:31  0:00:40     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5589      0  0:05:12  0:04:32  0:00:40     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5569      0  0:05:13  0:04:33  0:00:40     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5549      0  0:05:14  0:04:34  0:00:40     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5528      0  0:05:15  0:04:35  0:00:40     0</span><br><span class="line"> 87 1704k   87 1488k    0     0   5528      0  0:05:15  0:04:35  0:00:40     0</span><br><span class="line">curl: (56) Recv failure: Connection reset by peer</span><br><span class="line"></span><br><span class="line">** ARCHIVE FAILED **</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">The following build commands failed:</span><br><span class="line">	PhaseScriptExecution Run\ Script /Users/ainassine/Library/Caches/org.carthage.CarthageKit/DerivedData/9.4.1_9F2000/MMDB-Swift/0.2.8/Build/Intermediates.noindex/ArchiveIntermediates/MMDB-iOS/IntermediateBuildFilesPath/MMDB.build/Release-iphoneos/MMDB-iOS.build/Script-366F5FDD1F05152C00DE3883.sh</span><br><span class="line">(1 failure)</span><br></pre></td></tr></table></figure></p>
+<p>可以看出是网络问题导致failure的出现。打开当时执行的脚本，得到代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="keyword">if</span> [ ! -f <span class="variable">$SRCROOT</span>/MMDB/GeoLite2-Country.mmdb ] || [ <span class="variable">$CONFIGURATION</span> == <span class="string">"Release"</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="variable">$SRCROOT</span>/update_database.sh</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
+<p>打开update_database.sh发现如下命令是问题所在：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L -o $tmpfile http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>可以通过给代理的方法顺利执行上面的命令。这里我用的是<code>proxychains</code>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/public/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/blog/public/tags/NEKit/" rel="tag"><i class="fa fa-tag"></i> NEKit</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/public/2018/04/16/codecraft2018" rel="next" title="codecraft2018">
+                <i class="fa fa-chevron-left"></i> codecraft2018
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/public/2018/11/26/CentOS-7-5-安装Mysql" rel="prev" title="CentOS 7.5 安装Mysql">
+                CentOS 7.5 安装Mysql <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/blog/public/images/1.png"
+                alt="Ainassine" />
+            
+              <p class="site-author-name" itemprop="name">Ainassine</p>
+              <p class="site-description motion-element" itemprop="description">不做重复的事。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/public/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/blog/public/categories/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog/public/tags/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/blog/public/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Joeeyy" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:joeeeee@foxmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://exmaple.com" title="Test" target="_blank">Test</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MMDB-build-failed"><span class="nav-number">1.</span> <span class="nav-text">MMDB build failed.</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ainassine</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">20.0k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/public/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/public/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/public/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/public/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/public/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/public/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/public/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/blog/public/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/public/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/blog/public/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/public/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: true,
+        notify: true,
+        app_id: 'RNU69dfOuHjI6UeBMUnrfc9r-gzGzoHsz',
+        app_key: 'CjUKxBDwv46j3eAbL1XHPmh9',
+        placeholder: '想说点什么？'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/blog/public/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("RNU69dfOuHjI6UeBMUnrfc9r-gzGzoHsz", "CjUKxBDwv46j3eAbL1XHPmh9");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
