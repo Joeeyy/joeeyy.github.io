@@ -85,7 +85,7 @@
 <meta name="keywords" content="CTF,赛后总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rctf 2019 writeup">
-<meta property="og:url" content="http://blog.ainassine.cn/blog/public/2019/05/22/rctf-2019-writeup">
+<meta property="og:url" content="https://blog.ainassine.cn/blog/public/2019/05/22/rctf-2019-writeup">
 <meta property="og:site_name" content="Ainassine&#39;s Blog">
 <meta property="og:description" content="RCTF 2019 - Writeup0x00 Web - nextphp通过题目给出代码可以获取phpinfo。disable_functions中禁用函数很全:(，没有imagick组件:(，open_basedir限制为web目录。经过反复查看发现了opcache配置中有opcache.preload = /var/www/html/preload.php。另外，通过glob可以列举目录（可">
 <meta property="og:locale" content="zh-Hans">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.ainassine.cn/blog/public/2019/05/22/rctf-2019-writeup"/>
+  <link rel="canonical" href="https://blog.ainassine.cn/blog/public/2019/05/22/rctf-2019-writeup"/>
 
 
 
@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2019/05/22/rctf-2019-writeup">
+    <link itemprop="mainEntityOfPage" href="https://blog.ainassine.cn/blog/public/blog/public/2019/05/22/rctf-2019-writeup">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">

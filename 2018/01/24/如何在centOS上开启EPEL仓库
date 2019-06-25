@@ -85,7 +85,7 @@
 <meta name="keywords" content="centOS,EPEL repo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何在centOS上开启EPEL仓库">
-<meta property="og:url" content="http://blog.ainassine.cn/blog/public/2018/01/24/如何在centOS上开启EPEL仓库">
+<meta property="og:url" content="https://blog.ainassine.cn/blog/public/2018/01/24/如何在centOS上开启EPEL仓库">
 <meta property="og:site_name" content="Ainassine&#39;s Blog">
 <meta property="og:description" content="引自：How to Enable EPEL Repository for RHEL/CentOS 7.x/6.x/5.x  0x01 什么是EPELEPEL (Extra Packages for Enterprise Linux) 是一个Fedora团队提供的开源的基于免费社区的代码仓库项目。Fedora团队为Linux发行版（RHEL，CentOS，Scientific Linux）提供高">
 <meta property="og:locale" content="zh-Hans">
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.ainassine.cn/blog/public/2018/01/24/如何在centOS上开启EPEL仓库"/>
+  <link rel="canonical" href="https://blog.ainassine.cn/blog/public/2018/01/24/如何在centOS上开启EPEL仓库"/>
 
 
 
@@ -321,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2018/01/24/如何在centOS上开启EPEL仓库">
+    <link itemprop="mainEntityOfPage" href="https://blog.ainassine.cn/blog/public/blog/public/2018/01/24/如何在centOS上开启EPEL仓库">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">

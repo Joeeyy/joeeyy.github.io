@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="MacOS,iOS,Safari,堆溢出,沙箱逃逸," />
+  <meta name="keywords" content="iOS,MacOS,Safari,堆溢出,沙箱逃逸," />
 
 
 
@@ -82,10 +82,10 @@
 
 
 <meta name="description" content="转自SSD Advisory – iOS/macOS Safari Sandbox Escape via QuartzCore Heap Overflow  漏洞摘要QuratzCore，或者称之为CoreAnimation，是macOS和iOS用来创建动画图表的框架。CoreAnimation使用了一个独特的渲染模型">
-<meta name="keywords" content="MacOS,iOS,Safari,堆溢出,沙箱逃逸">
+<meta name="keywords" content="iOS,MacOS,Safari,堆溢出,沙箱逃逸">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通过QuartzCore堆溢出实现Safari沙箱逃逸">
-<meta property="og:url" content="http://blog.ainassine.cn/blog/public/2018/12/03/通过QuartzCore堆溢出实现Safari沙箱逃逸">
+<meta property="og:url" content="https://blog.ainassine.cn/blog/public/2018/12/03/通过QuartzCore堆溢出实现Safari沙箱逃逸">
 <meta property="og:site_name" content="Ainassine&#39;s Blog">
 <meta property="og:description" content="转自SSD Advisory – iOS/macOS Safari Sandbox Escape via QuartzCore Heap Overflow  漏洞摘要QuratzCore，或者称之为CoreAnimation，是macOS和iOS用来创建动画图表的框架。CoreAnimation使用了一个独特的渲染模型，这个渲染模型的图像操作运行在一个独立的进程中。在macOS中，这个独立的进程">
 <meta property="og:locale" content="zh-Hans">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.ainassine.cn/blog/public/2018/12/03/通过QuartzCore堆溢出实现Safari沙箱逃逸"/>
+  <link rel="canonical" href="https://blog.ainassine.cn/blog/public/2018/12/03/通过QuartzCore堆溢出实现Safari沙箱逃逸"/>
 
 
 
@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2018/12/03/通过QuartzCore堆溢出实现Safari沙箱逃逸">
+    <link itemprop="mainEntityOfPage" href="https://blog.ainassine.cn/blog/public/blog/public/2018/12/03/通过QuartzCore堆溢出实现Safari沙箱逃逸">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">
@@ -524,9 +524,9 @@
       
         <div class="post-tags">
           
-            <a href="/blog/public/tags/MacOS/" rel="tag"><i class="fa fa-tag"></i> MacOS</a>
-          
             <a href="/blog/public/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/blog/public/tags/MacOS/" rel="tag"><i class="fa fa-tag"></i> MacOS</a>
           
             <a href="/blog/public/tags/Safari/" rel="tag"><i class="fa fa-tag"></i> Safari</a>
           
