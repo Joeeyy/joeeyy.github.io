@@ -885,21 +885,6 @@
 
 
 
-  
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
-  <script type="text/javascript">
-    new Valine({
-        av: AV,
-        el: '#vcomments' ,
-        verify: true,
-        notify: true,
-        app_id: 'RNU69dfOuHjI6UeBMUnrfc9r-gzGzoHsz',
-        app_key: 'CjUKxBDwv46j3eAbL1XHPmh9',
-        placeholder: '想说点什么？'
-    });
-  </script>
-
 
 
   

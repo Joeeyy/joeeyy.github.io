@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="iOS,MacOS,Safari,堆溢出,沙箱逃逸," />
+  <meta name="keywords" content="MacOS,iOS,Safari,堆溢出,沙箱逃逸," />
 
 
 
@@ -82,7 +82,7 @@
 
 
 <meta name="description" content="转自SSD Advisory – iOS/macOS Safari Sandbox Escape via QuartzCore Heap Overflow  漏洞摘要QuratzCore，或者称之为CoreAnimation，是macOS和iOS用来创建动画图表的框架。CoreAnimation使用了一个独特的渲染模型">
-<meta name="keywords" content="iOS,MacOS,Safari,堆溢出,沙箱逃逸">
+<meta name="keywords" content="MacOS,iOS,Safari,堆溢出,沙箱逃逸">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通过QuartzCore堆溢出实现Safari沙箱逃逸">
 <meta property="og:url" content="https://blog.ainassine.cn/blog/public/2018/12/03/通过QuartzCore堆溢出实现Safari沙箱逃逸">
@@ -524,9 +524,9 @@
       
         <div class="post-tags">
           
-            <a href="/blog/public/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
-          
             <a href="/blog/public/tags/MacOS/" rel="tag"><i class="fa fa-tag"></i> MacOS</a>
+          
+            <a href="/blog/public/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
             <a href="/blog/public/tags/Safari/" rel="tag"><i class="fa fa-tag"></i> Safari</a>
           
@@ -917,21 +917,6 @@
 
 
 
-
-  
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
-  <script type="text/javascript">
-    new Valine({
-        av: AV,
-        el: '#vcomments' ,
-        verify: true,
-        notify: true,
-        app_id: 'RNU69dfOuHjI6UeBMUnrfc9r-gzGzoHsz',
-        app_key: 'CjUKxBDwv46j3eAbL1XHPmh9',
-        placeholder: '想说点什么？'
-    });
-  </script>
 
 
 
