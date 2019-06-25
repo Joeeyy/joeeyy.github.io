@@ -2,22 +2,22 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <sitemap>
-        <loc>https://blog.ainassine.cn/blog/public/post-sitemap.xml</loc>
+        <loc>http://blog.ainassine.cn/blog/public/post-sitemap.xml</loc>
         <lastmod>2019-06-25T09:10:04.848Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>https://blog.ainassine.cn/blog/public/page-sitemap.xml</loc>
+        <loc>http://blog.ainassine.cn/blog/public/page-sitemap.xml</loc>
         <lastmod>2018-01-24T04:47:20.134Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>https://blog.ainassine.cn/blog/public/category-sitemap.xml</loc>
+        <loc>http://blog.ainassine.cn/blog/public/category-sitemap.xml</loc>
         <lastmod>2018-01-23T14:58:33.425Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>https://blog.ainassine.cn/blog/public/tag-sitemap.xml</loc>
+        <loc>http://blog.ainassine.cn/blog/public/tag-sitemap.xml</loc>
         <lastmod>2018-01-23T14:58:33.425Z</lastmod>
     </sitemap>
 

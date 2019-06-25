@@ -85,7 +85,7 @@
 <meta name="keywords" content="CodeCraft">
 <meta property="og:type" content="article">
 <meta property="og:title" content="codecraft2018">
-<meta property="og:url" content="https://blog.ainassine.cn/blog/public/2018/04/16/codecraft2018">
+<meta property="og:url" content="http://blog.ainassine.cn/blog/public/2018/04/16/codecraft2018">
 <meta property="og:site_name" content="Ainassine&#39;s Blog">
 <meta property="og:description" content="Codecraft 2018 ENDS … (初赛)0x00 历程华为的Codecraft比赛是大学的时候就有参加过的，第一次是2016年，那是第二届Codecraft，当时的赛题是一种寻路问题，大三的我在找为找工作考虑才参加了这个比赛。当然大学的时候很咸鱼（现在也是），参加比赛也都是碰碰运气。很多算法——群智能、模拟退化、遗传算法等等——在那之前也都对我来说闻所未闻，我所能做的无非是利用暴力搜索">
 <meta property="og:locale" content="zh-Hans">
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="https://blog.ainassine.cn/blog/public/2018/04/16/codecraft2018"/>
+  <link rel="canonical" href="http://blog.ainassine.cn/blog/public/2018/04/16/codecraft2018"/>
 
 
 
@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.ainassine.cn/blog/public/blog/public/2018/04/16/codecraft2018">
+    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2018/04/16/codecraft2018">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">

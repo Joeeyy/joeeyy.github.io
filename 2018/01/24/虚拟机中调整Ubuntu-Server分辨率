@@ -85,7 +85,7 @@
 <meta name="keywords" content="Ubuntu Server,分辨率调整">
 <meta property="og:type" content="article">
 <meta property="og:title" content="虚拟机中调整Ubuntu Server分辨率">
-<meta property="og:url" content="https://blog.ainassine.cn/blog/public/2018/01/24/虚拟机中调整Ubuntu-Server分辨率">
+<meta property="og:url" content="http://blog.ainassine.cn/blog/public/2018/01/24/虚拟机中调整Ubuntu-Server分辨率">
 <meta property="og:site_name" content="Ainassine&#39;s Blog">
 <meta property="og:description" content="引自：调整虚拟机中Ubuntu Server 屏幕分辨率   打开grub文件:$ sudo vi /etc/default/grub  修改参数GRUB_CMDLINE_LINUX的值:GRUB_CMDLINE_LINUX=&amp;quot;vga=0x317&amp;quot;参数值参考下图：     显存 640x480 800x600 1024x768 1280x1024     256 0x301">
 <meta property="og:locale" content="zh-Hans">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://blog.ainassine.cn/blog/public/2018/01/24/虚拟机中调整Ubuntu-Server分辨率"/>
+  <link rel="canonical" href="http://blog.ainassine.cn/blog/public/2018/01/24/虚拟机中调整Ubuntu-Server分辨率"/>
 
 
 
@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.ainassine.cn/blog/public/blog/public/2018/01/24/虚拟机中调整Ubuntu-Server分辨率">
+    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2018/01/24/虚拟机中调整Ubuntu-Server分辨率">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">

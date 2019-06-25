@@ -85,7 +85,7 @@
 <meta name="keywords" content="MacOS,U盘分区">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MacOS上U盘分区">
-<meta property="og:url" content="https://blog.ainassine.cn/blog/public/2018/01/24/MacOS上U盘分区">
+<meta property="og:url" content="http://blog.ainassine.cn/blog/public/2018/01/24/MacOS上U盘分区">
 <meta property="og:site_name" content="Ainassine&#39;s Blog">
 <meta property="og:description" content="1$ diskutil partitionDisk /dev/disk2 3 MS-DOS DOS 20G ExFAT linux_kali_1 20G ExFAT linux_kali_2 24G 在使用前需要知道自己的U盘设备号，比如/dev/disk2，紧接着的数字是分区数目，然后是格式、分区名称、分区大小。利用diskutil list查看磁盘设备。 P.S.笔者设备：macOS High">
 <meta property="og:locale" content="zh-Hans">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://blog.ainassine.cn/blog/public/2018/01/24/MacOS上U盘分区"/>
+  <link rel="canonical" href="http://blog.ainassine.cn/blog/public/2018/01/24/MacOS上U盘分区"/>
 
 
 
@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.ainassine.cn/blog/public/blog/public/2018/01/24/MacOS上U盘分区">
+    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2018/01/24/MacOS上U盘分区">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">

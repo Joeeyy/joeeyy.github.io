@@ -85,7 +85,7 @@
 <meta name="keywords" content="CTF,隐写,工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="隐写入门-工具篇">
-<meta property="og:url" content="https://blog.ainassine.cn/blog/public/2018/03/02/隐写入门-工具篇">
+<meta property="og:url" content="http://blog.ainassine.cn/blog/public/2018/03/02/隐写入门-工具篇">
 <meta property="og:site_name" content="Ainassine&#39;s Blog">
 <meta property="og:description" content="CTF入门：隐写工具篇 参考http://www.bugku.com/thread-56-1-1.html  0x01 StegdetectStegdetect程序主要用于分析JPEG文件，可以检测到通过JSteg、JPHide、OutGuess、Invisible Secrets、F5、appendX和Camouflage等这些隐写工具隐藏的信息。 Stegdetect通过统计测试来分析图像文件">
 <meta property="og:locale" content="zh-Hans">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://blog.ainassine.cn/blog/public/2018/03/02/隐写入门-工具篇"/>
+  <link rel="canonical" href="http://blog.ainassine.cn/blog/public/2018/03/02/隐写入门-工具篇"/>
 
 
 
@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.ainassine.cn/blog/public/blog/public/2018/03/02/隐写入门-工具篇">
+    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2018/03/02/隐写入门-工具篇">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">

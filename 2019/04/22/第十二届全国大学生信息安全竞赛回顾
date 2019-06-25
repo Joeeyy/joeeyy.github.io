@@ -85,7 +85,7 @@
 <meta name="keywords" content="CTF,赛后总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第十二届全国大学生信息安全竞赛回顾">
-<meta property="og:url" content="https://blog.ainassine.cn/blog/public/2019/04/22/第十二届全国大学生信息安全竞赛回顾">
+<meta property="og:url" content="http://blog.ainassine.cn/blog/public/2019/04/22/第十二届全国大学生信息安全竞赛回顾">
 <meta property="og:site_name" content="Ainassine&#39;s Blog">
 <meta property="og:description" content="0x00 Web - Justsoso题目主要涉及index.php和hint.php两个PHP文件：index.php1234567891011121314151617181920212223242526272829&amp;lt;html&amp;gt;&amp;lt;?phperror_reporting(0); $file = $_GET[&quot;file&quot;]; $payload = $_GET[&quot;payload&quot;];">
 <meta property="og:locale" content="zh-Hans">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://blog.ainassine.cn/blog/public/2019/04/22/第十二届全国大学生信息安全竞赛回顾"/>
+  <link rel="canonical" href="http://blog.ainassine.cn/blog/public/2019/04/22/第十二届全国大学生信息安全竞赛回顾"/>
 
 
 
@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.ainassine.cn/blog/public/blog/public/2019/04/22/第十二届全国大学生信息安全竞赛回顾">
+    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2019/04/22/第十二届全国大学生信息安全竞赛回顾">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">

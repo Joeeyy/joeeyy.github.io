@@ -85,7 +85,7 @@
 <meta name="keywords" content="iOS,开发,配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以Ad-Hoc方式发布iOS应用">
-<meta property="og:url" content="https://blog.ainassine.cn/blog/public/2018/11/28/以Ad-Hoc方式发布iOS应用">
+<meta property="og:url" content="http://blog.ainassine.cn/blog/public/2018/11/28/以Ad-Hoc方式发布iOS应用">
 <meta property="og:site_name" content="Ainassine&#39;s Blog">
 <meta property="og:description" content="背景项目开发的App因为某些原因无法在AppStore上架，为了便于后续使用还是需要一种能够不经AppStore安装iOS App的手段。参照iOS部署参考，得知可以以Ad Hoc的方式发布iOS App。 0x00 准备· 一个支持https的网站，用来存放你的app以及相关文件· 一个等待发布的iOS项目 0x01 Apache服务器配置HTTPS我的服务器是搭建在阿里云上的，域名也是通过阿里">
 <meta property="og:locale" content="zh-Hans">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://blog.ainassine.cn/blog/public/2018/11/28/以Ad-Hoc方式发布iOS应用"/>
+  <link rel="canonical" href="http://blog.ainassine.cn/blog/public/2018/11/28/以Ad-Hoc方式发布iOS应用"/>
 
 
 
@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.ainassine.cn/blog/public/blog/public/2018/11/28/以Ad-Hoc方式发布iOS应用">
+    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2018/11/28/以Ad-Hoc方式发布iOS应用">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">
