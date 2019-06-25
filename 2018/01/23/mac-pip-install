@@ -85,7 +85,7 @@
 <meta name="keywords" content="MacOS,Python,pip install">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac-pip-install">
-<meta property="og:url" content="http://blog.ainassine.cn/blog/public/2018/01/23/mac-pip-install">
+<meta property="og:url" content="https://blog.ainassine.cn/blog/public/2018/01/23/mac-pip-install">
 <meta property="og:site_name" content="Ainassine&#39;s Blog">
 <meta property="og:description" content="MacOS系统中pip install 时常出现Permission Denied的情况，可以采用以下方式解决问题。1$ pip install --user &amp;lt;package name&amp;gt; 可以在安装python模块时按情况使用--upgrade --ignore-installed选项。">
 <meta property="og:locale" content="zh-Hans">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.ainassine.cn/blog/public/2018/01/23/mac-pip-install"/>
+  <link rel="canonical" href="https://blog.ainassine.cn/blog/public/2018/01/23/mac-pip-install"/>
 
 
 
@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2018/01/23/mac-pip-install">
+    <link itemprop="mainEntityOfPage" href="https://blog.ainassine.cn/blog/public/blog/public/2018/01/23/mac-pip-install">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">

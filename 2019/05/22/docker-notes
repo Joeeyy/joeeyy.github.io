@@ -85,16 +85,16 @@
 <meta name="keywords" content="笔记,Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker notes">
-<meta property="og:url" content="http://blog.ainassine.cn/blog/public/2019/05/22/docker-notes">
+<meta property="og:url" content="https://blog.ainassine.cn/blog/public/2019/05/22/docker-notes">
 <meta property="og:site_name" content="Ainassine&#39;s Blog">
 <meta property="og:description" content="这里记录自己Docker上用过的一些知识。    主要参考：https://docs.docker.com/   0x00 关于Docker概念：容器、镜像    A container is launched by running an image. An image is an executable package that includes everything needed to run">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://blog.ainassine.cn/blog/images/dockerVSvm.png">
+<meta property="og:image" content="https://blog.ainassine.cn/blog/images/dockerVSvm.png">
 <meta property="og:updated_time" content="2019-05-23T09:04:17.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker notes">
 <meta name="twitter:description" content="这里记录自己Docker上用过的一些知识。    主要参考：https://docs.docker.com/   0x00 关于Docker概念：容器、镜像    A container is launched by running an image. An image is an executable package that includes everything needed to run">
-<meta name="twitter:image" content="http://blog.ainassine.cn/blog/images/dockerVSvm.png">
+<meta name="twitter:image" content="https://blog.ainassine.cn/blog/images/dockerVSvm.png">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.ainassine.cn/blog/public/2019/05/22/docker-notes"/>
+  <link rel="canonical" href="https://blog.ainassine.cn/blog/public/2019/05/22/docker-notes"/>
 
 
 
@@ -321,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.ainassine.cn/blog/public/blog/public/2019/05/22/docker-notes">
+    <link itemprop="mainEntityOfPage" href="https://blog.ainassine.cn/blog/public/blog/public/2019/05/22/docker-notes">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ainassine">

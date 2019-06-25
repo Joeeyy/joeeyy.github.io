@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://blog.ainassine.cn/blog/public</loc>
+        <loc>https://blog.ainassine.cn/blog/public</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     
     <url>
-        <loc>http://blog.ainassine.cn/blog/public/about/</loc>
+        <loc>https://blog.ainassine.cn/blog/public/about/</loc>
         <lastmod>2018-01-24T04:47:20.134Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://blog.ainassine.cn/blog/public/tags/</loc>
+        <loc>https://blog.ainassine.cn/blog/public/tags/</loc>
         <lastmod>2018-01-24T04:13:06.046Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://blog.ainassine.cn/blog/public/categories/</loc>
+        <loc>https://blog.ainassine.cn/blog/public/categories/</loc>
         <lastmod>2018-01-24T04:12:48.663Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
